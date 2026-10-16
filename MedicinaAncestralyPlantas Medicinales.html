@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medicina Ancestral y Plantas Medicinales</title>
+<style>
+:root{--bg:#f6f3ea;--surface:#fffdf7;--text:#23301f;--muted:#5f6b57;--accent:#3d7a3a;--accent2:#b8742a;--line:#ddd6c3;--chip:#e8efdc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a12;--surface:#1d2619;--text:#e8eddf;--muted:#a3b098;--accent:#7fc27a;--accent2:#e0a35c;--line:#2e3a29;--chip:#27351f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141a12;--surface:#1d2619;--text:#e8eddf;--muted:#a3b098;--accent:#7fc27a;--accent2:#e0a35c;--line:#2e3a29;--chip:#27351f;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:18px;justify-content:center;padding:14px;font:600 14px system-ui,sans-serif;border-bottom:1px solid var(--line)}
+nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--accent)}
+header.hero{text-align:center;padding:56px 0 40px}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);margin:0 0 12px;line-height:1.1}
+.hero p{max-width:640px;margin:0 auto;color:var(--muted);font-size:1.1rem}
+.badge{display:inline-block;font:600 13px system-ui,sans-serif;background:var(--chip);color:var(--accent);padding:6px 14px;border-radius:99px;margin-bottom:18px}
+section{padding:36px 0}
+h2{font-size:1.8rem;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 22px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;font-family:system-ui,sans-serif}
+.tools input{flex:1;min-width:200px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--text);padding:8px 14px;border-radius:99px;cursor:pointer;font:500 14px system-ui,sans-serif}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;cursor:pointer;text-align:left;color:var(--text);font:inherit;transition:transform .15s,box-shadow .15s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.12);outline:2px solid var(--accent)}
+.card .ico{font-size:2.6rem}
+.card h3{margin:8px 0 2px;font-size:1.2rem}
+.card i{color:var(--muted);font-size:.9rem}
+.card .more{display:block;margin-top:10px;color:var(--accent);font:600 13px system-ui,sans-serif}
+.empty{color:var(--muted);display:none;text-align:center;padding:30px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.box h3{margin:0 0 6px;color:var(--accent2)}
+.box p{margin:0;color:var(--muted)}
+dialog{border:none;border-radius:20px;padding:0;max-width:600px;width:calc(100% - 28px);background:var(--surface);color:var(--text);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(10,15,8,.6)}
+.dh{padding:26px 26px 14px;background:var(--chip);position:relative}
+.dh .ico{font-size:3rem}.dh h3{margin:4px 0 0;font-size:1.7rem}.dh i{color:var(--muted)}
+.x{position:absolute;top:12px;right:12px;border:none;background:var(--surface);color:var(--text);width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer}
+.db{padding:18px 26px 26px;max-height:62vh;overflow-y:auto}
+.db h4{margin:16px 0 4px;font:700 13px system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--accent2)}
+.db p{margin:0}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tags span{background:var(--chip);color:var(--accent);padding:3px 10px;border-radius:99px;font:600 12px system-ui,sans-serif}
+.warn{margin-top:18px;padding:12px 14px;border-left:4px solid var(--accent2);background:var(--bg);border-radius:6px;font-size:.92rem}
+.note{font:14px system-ui,sans-serif;color:var(--muted);background:var(--chip);border-radius:12px;padding:14px 18px;margin-top:20px}
+footer{text-align:center;color:var(--muted);font:13px system-ui,sans-serif;padding:30px 20px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<nav><a href="#plantas">Plantas</a><a href="#estudio">Estudio de campo</a><a href="#saberes">Saberes</a></nav>
+<div class="wrap">
+<header class="hero">
+<span class="badge">Salitre · Daule · Guayas, Ecuador</span>
+<h1>Medicina Ancestral y Plantas Medicinales</h1>
+<p>Un recorrido por los saberes tradicionales que las familias de Salitre y Daule han conservado por generaciones. Toca cualquier planta para conocer su origen, su historia y sus usos.</p>
+</header>
+
+<section id="plantas">
+<h2>Herbario interactivo</h2>
+<p class="sub">Busca una planta o filtra por el tipo de uso tradicional.</p>
+<div class="tools">
+<input id="q" type="search" placeholder="Buscar planta (ej. achiote, toronjil…)" aria-label="Buscar planta">
+<div class="chips" id="chips"></div>
+</div>
+<div class="grid" id="grid"></div>
+<p class="empty" id="empty">No se encontraron plantas con esa búsqueda.</p>
+</section>
+
+<section id="estudio">
+<h2>Estudio de campo</h2>
+<p class="sub">Cómo se documenta el uso de la medicina tradicional en los cantones.</p>
+<div class="cols">
+<div class="box"><h3>🌾 Salitre</h3><p>Cantón de tradición agrícola y montubia, donde el conocimiento de plantas pasa de abuelos a nietos en la vida de campo.</p></div>
+<div class="box"><h3>🌳 Daule</h3><p>Cantón ribereño con fuerte herencia montubia, donde se mantienen yerbateros, curanderos y huertos caseros de plantas.</p></div>
+<div class="box"><h3>📝 Método</h3><p>Entrevistas a pobladores y personas sabias, observación directa y registro de cada planta: nombre común, uso y forma de preparación.</p></div>
+</div>
+<p class="note">Edita esta sección con los resultados reales de tu estudio: número de personas entrevistadas, plantas más mencionadas y comunidades visitadas.</p>
+</section>
+
+<section id="saberes">
+<h2>Saberes que se transmiten</h2>
+<div class="cols">
+<div class="box"><h3>🗣️ Transmisión oral</h3><p>Las recetas y los usos se aprenden escuchando y practicando, de madres, abuelas y curanderos.</p></div>
+<div class="box"><h3>🏡 Huerto casero</h3><p>Muchas familias cultivan sus plantas cerca de casa para tenerlas siempre a mano.</p></div>
+<div class="box"><h3>🤝 Medicina complementaria</h3><p>Los remedios tradicionales acompañan, no reemplazan, la atención médica profesional.</p></div>
+</div>
+</section>
+</div>
+
+<footer>Pre Proyecto de Plantas Ancestrales by Jhon Hernandez L</footer>
+
+<dialog id="dlg" aria-labelledby="dt">
+<div class="dh"><button class="x" id="close" aria-label="Cerrar">✕</button><div class="ico" id="di"></div><h3 id="dt"></h3><i id="ds"></i></div>
+<div class="db" id="dbody"></div>
+</dialog>
+
+<script>
+var P=[
+{n:"Achiote",s:"Bixa orellana",e:"🔴",c:["Piel y heridas","Respiratorio"],o:"Nativo de las zonas tropicales de América, con presencia en la Amazonía y la costa de Ecuador.",h:"Los pueblos originarios lo usaron como pintura corporal y colorante. Entre los tsáchilas de Ecuador, su pasta roja es parte de la identidad cultural.",u:"Las semillas colorean y dan sabor a las comidas. En la medicina popular, las hojas se usan para la garganta irritada y la pasta para quemaduras leves.",p:"Hojas en infusión para gárgaras; semillas remojadas en aceite para aplicar sobre la piel.",w:"Puede causar alergias en personas sensibles. Prueba primero en una zona pequeña de piel."},
+{n:"Achochilla",s:"Momordica charantia",e:"🥒",c:["Digestivo"],o:"Originaria de las regiones tropicales de África y Asia. Llegó a América y hoy crece como enredadera en cercas y huertos.",h:"Se difundió por el mundo tropical y fue adoptada por la medicina popular por su sabor muy amargo, de ahí su fama como planta depurativa.",u:"En infusión se usa tradicionalmente para el malestar estomacal, los parásitos y como «depurativo».",p:"Pocas hojas en infusión, de forma ocasional.",w:"Puede bajar el azúcar en sangre; no reemplaza el tratamiento de la diabetes. Evítala en el embarazo. Las semillas rojas son tóxicas."},
+{n:"Albahaca",s:"Ocimum basilicum",e:"🌿",c:["Calmante","Digestivo","Espiritual y limpias"],o:"Originaria del sur de Asia, probablemente de la India. Se difundió por el Mediterráneo y luego por América.",h:"En muchas culturas se consideró planta sagrada y protectora. En la costa ecuatoriana se usa en baños y en la cocina.",u:"En infusión ayuda a la digestión y a relajarse; en baños se usa para la buena energía.",p:"Hojas frescas en infusión, o ramas en el agua del baño.",w:"En cantidades medicinales evítala durante el embarazo y la lactancia."},
+{n:"Cordoncillo / Santa María",s:"Piper aduncum",e:"🍃",c:["Piel y heridas","Digestivo"],o:"Nativo de las zonas tropicales de América, incluidas las regiones cálidas de Ecuador. También se le conoce como matico.",h:"Los pueblos originarios lo usaron para lavar heridas y detener el sangrado. Su uso se mantiene en la medicina popular andina y costeña.",u:"En infusión se usa para el malestar estomacal; en lavados, para limpiar heridas superficiales.",p:"Las hojas se hierven unos minutos y se deja enfriar para lavados, o se toma tibia como infusión.",w:"No sustituye la atención de heridas profundas o infectadas."},
+{n:"Flor de muerto / Clavelón",s:"Tagetes erecta",e:"🌼",c:["Digestivo","Espiritual y limpias"],o:"Originaria de México y Centroamérica. Se extendió por toda América y hoy se cultiva en huertos y jardines.",h:"En Mesoamérica es la flor de los difuntos. En Ecuador su color anaranjado acompaña las ofrendas y las visitas a los cementerios en noviembre.",u:"En infusión se usa para los cólicos y el malestar de estómago; en limpias y baños, de manera ritual.",p:"Flores y hojas frescas en infusión, o en el agua del baño.",w:"Evítala durante el embarazo. Puede dar alergia en personas sensibles a las compuestas."},
+{n:"Hierbaluisa",s:"Cymbopogon citratus",e:"🌾",c:["Digestivo","Calmante"],o:"Originaria del sur de Asia, de la India y Sri Lanka. Se adaptó muy bien al clima tropical de América.",h:"Llegó a América en la época colonial y se volvió una planta de huerto familiar por su aroma a limón.",u:"Se toma en infusión para la digestión, los nervios y como bebida relajante antes de dormir.",p:"Unas hojas frescas en agua caliente, tapadas por 5 a 10 minutos.",w:"Si tomas medicación de forma continua, consulta antes de usarla como remedio frecuente."},
+{n:"Limón sutil",s:"Citrus aurantifolia",e:"🍋",c:["Respiratorio","Digestivo"],o:"Originario del sudeste de Asia. Llegó a América con los españoles y se adaptó muy bien al clima cálido de la costa.",h:"Se volvió parte de la cocina y los remedios caseros de la costa ecuatoriana, desde el cebiche hasta el té caliente para el resfriado.",u:"Se usa en bebidas calientes con miel para la gripe y la tos, y para aliviar la indigestión.",p:"Jugo de limón en agua tibia con miel, tomado de a poco.",w:"El jugo sobre la piel y el sol puede manchar. Si tienes gastritis o reflujo, puede irritar."},
+{n:"Manzanilla",s:"Matricaria chamomilla",e:"🏵️",c:["Digestivo","Calmante"],o:"Originaria de Europa y Asia occidental. Llegó a América en la época colonial.",h:"Es una de las plantas medicinales más antiguas de Europa. En los hogares ecuatorianos es la infusión de uso diario para el estómago y los nervios.",u:"Se toma para los cólicos, los gases, la digestión y para relajarse. También se usa en lavados suaves de los ojos.",p:"Flores secas o frescas en agua caliente, tapadas unos minutos.",w:"Puede causar alergia en personas sensibles a la ambrosía o a plantas de su familia."},
+{n:"Matarratón / Piñón",s:"Gliricidia sepium",e:"🌳",c:["Piel y heridas"],o:"Nativo de Mesoamérica y del norte de Sudamérica. Se usa como cerca viva y árbol de sombra en zonas cálidas.",h:"Su nombre viene del uso tradicional de sus hojas y corteza para espantar ratas y otras plagas del campo.",u:"En el campo se usa externamente, en baños y lavados, para la sarna y la picazón de la piel.",p:"Hojas hervidas para lavados o baños, solo de uso externo.",w:"No se debe ingerir: es tóxica para personas y animales."},
+{n:"Menta / Yerbabuena",s:"Mentha sativa",e:"🌱",c:["Digestivo","Respiratorio"],o:"Originaria de Europa y Asia. Se cultiva en huertos de todo el mundo, incluida la costa ecuatoriana.",h:"Los pueblos antiguos de Egipto, Grecia y Roma ya la usaban. Hoy es una de las plantas más comunes de patio y huerto familiar.",u:"En infusión se usa para los gases, el estómago pesado, las náuseas y la congestión leve.",p:"Unas hojas frescas en agua caliente, tapadas 5 minutos.",w:"Puede empeorar el reflujo. Evita darla en infusiones fuertes a bebés y niños pequeños."},
+{n:"Orégano de la costa",s:"Plectranthus amboinicus",e:"🪴",c:["Respiratorio"],o:"Originario del sureste de África y Asia tropical. Llegó a América y se adaptó bien al clima cálido.",h:"Es una planta de maceta y patio muy común en la costa. Se conoce como orégano por su aroma, pero es una especie distinta del orégano de cocina.",u:"Sus hojas gruesas se usan en infusión o jarabe casero para la tos, el resfrío y la congestión.",p:"Hojas lavadas en infusión, con miel si se desea.",w:"No se recomienda durante el embarazo. Úsala con moderación."},
+{n:"Ruda",s:"Ruta graveolens",e:"☘️",c:["Espiritual y limpias","Calmante"],o:"Originaria de la región mediterránea de Europa. Llegó a América con los colonizadores.",h:"En Europa ya se asociaba a la protección contra el mal. En Ecuador se integró a las limpias y a los baños de buena suerte.",u:"Se usa en limpias tradicionales y para aliviar dolores leves en preparaciones caseras.",p:"Las ramitas se usan frescas en limpias o en baños, con poco uso interno.",w:"Está contraindicada en embarazo. Puede irritar la piel si luego te expones al sol."},
+{n:"Sábila / Aloe vera",s:"Aloe vera",e:"🌵",c:["Piel y heridas","Digestivo"],o:"Originaria de la península arábiga y el norte de África. Llegó a América con la colonización y hoy es común en los patios de la costa ecuatoriana.",h:"Se conoce desde la antigüedad en Egipto y Mesopotamia como planta de cuidado de la piel. En el campo se cultiva en macetas y se corta la penca según se necesite.",u:"Su gel fresco se aplica sobre quemaduras leves, picaduras y piel irritada. También se usa en el cuidado del cabello.",p:"Se parte la penca, se retira la capa amarilla y se usa solo el gel transparente.",w:"El látex amarillo que hay bajo la cáscara es un laxante fuerte. Evita tomarlo, sobre todo en embarazo."},
+{n:"Toronjil",s:"Melissa officinalis",e:"🍀",c:["Calmante","Digestivo"],o:"Originario de la región mediterránea y de Asia occidental. Llegó a América en la época colonial.",h:"Se cultivó por siglos en jardines de monasterios europeos como planta calmante. En Ecuador se usa mucho para los nervios y el susto.",u:"En infusión se toma para los nervios, el insomnio leve y el malestar de estómago asociado al estrés.",p:"Hojas frescas en agua caliente, tapadas 5 a 10 minutos.",w:"Puede dar somnolencia. Consulta si tomas sedantes o medicación para la tiroides."},
+{n:"Verbena",s:"Verbena litoralis",e:"💜",c:["Digestivo","Calmante"],o:"Nativa de América. Crece de forma silvestre en caminos, orillas y terrenos de zonas cálidas y templadas.",h:"Fue usada por los pueblos originarios y se mantiene en la medicina campesina, especialmente para el hígado y la fiebre.",u:"En infusión se usa para el estómago, la fiebre leve y los nervios.",p:"Hojas y flores en infusión suave.",w:"Evítala en el embarazo y no la uses de forma prolongada."}
+];
+var cats=["Todas"],act="Todas";
+P.forEach(function(p){p.c.forEach(function(c){if(cats.indexOf(c)<0)cats.push(c)})});
+var chips=document.getElementById("chips"),grid=document.getElementById("grid"),q=document.getElementById("q"),emp=document.getElementById("empty");
+cats.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c==="Todas"?" on":"");b.textContent=c;b.onclick=function(){act=c;[].forEach.call(chips.children,function(x){x.classList.toggle("on",x===b)});render()};chips.appendChild(b)});
+function render(){
+var t=q.value.trim().toLowerCase(),n=0;grid.innerHTML="";
+P.forEach(function(p,i){
+if(act!=="Todas"&&p.c.indexOf(act)<0)return;
+if(t&&(p.n+" "+p.s).toLowerCase().indexOf(t)<0)return;
+n++;var b=document.createElement("button");b.className="card";
+b.innerHTML='<div class="ico">'+p.e+'</div><h3>'+p.n+'</h3><i>'+p.s+'</i><span class="more">Ver información →</span>';
+b.onclick=function(){open_(i)};grid.appendChild(b)});
+emp.style.display=n?"none":"block"}
+q.oninput=render;render();
+var d=document.getElementById("dlg");
+function open_(i){var p=P[i];
+document.getElementById("di").textContent=p.e;document.getElementById("dt").textContent=p.n;document.getElementById("ds").textContent=p.s;
+document.getElementById("dbody").innerHTML='<div class="tags">'+p.c.map(function(c){return"<span>"+c+"</span>"}).join("")+'</div><h4>Origen</h4><p>'+p.o+'</p><h4>Historia</h4><p>'+p.h+'</p><h4>Para qué sirve</h4><p>'+p.u+'</p><h4>Cómo se prepara</h4><p>'+p.p+'</p><div class="warn"><b>Precaución:</b> '+p.w+'</div>';
+d.showModal()}
+document.getElementById("close").onclick=function(){d.close()};
+d.addEventListener("click",function(e){if(e.target===d)d.close()});
+</script>
+</body>
+</html>
